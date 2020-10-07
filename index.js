@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const Discord = require('discord.js');
 const { prefix, token, botID,
     stockQueries, stockAnswers,
@@ -5,6 +6,7 @@ const { prefix, token, botID,
     stockThanksReturn,
     archiveNames,
     aboutQuery, aboutAnswer } = require('./config.json')
+const { characterFiles, deleteThis } = require('./fileURLs.json')
 const client = new Discord.Client();
 
 client.once('ready', () => {
@@ -55,14 +57,14 @@ function accessFile(input, message) {
     for (entry in archiveNames) {
         let name = String(archiveNames[entry])
         if (query === name) {
-            let number = 40;
+            let characterFile = characterFiles[name]
+            let number = characterFile.length;
+            console.log(number)
             let imageNumber = Math.floor (Math.random() * (number - 1 + 1)) + 1;
-            message.channel.send ( { files: ["./images/"+ name + "/" + imageNumber + ".png"]})
+            message.channel.send (characterFile[imageNumber])
         }
      }
 }
-
-
 
 function calculate(input, message) {
     const request = String(input).replace('calculate','');
@@ -89,6 +91,9 @@ function askAnalyzer(message) {
 }
 
 function checkForPhrasesIn(input, message) {
+    if (input === "cursed image alert") {
+        cursedImage(message)
+    }
     for (entry in stockQueries) {
         let keyPhrase = String(stockQueries[entry])
         if (input.includes(keyPhrase)) {
@@ -107,7 +112,7 @@ function checkForPhrasesIn(input, message) {
     for (entry in stockThanks) {
         let keyPhrase = String(stockThanks[entry])
         if (input.includes(keyPhrase)) {
-            let name = String(message.author).toUpperCase()
+            // let name = String(message.author).toUpperCase()
             message.channel.send(randomItem(stockThanksReturn))
             return;
         }
@@ -123,6 +128,14 @@ function checkForPhrasesIn(input, message) {
         calculate(input, message)
         return
     }
+}
+
+function cursedImage(message) {
+    let number = deleteThis.length
+    console.log(number)
+    let imageNumber = Math.floor(Math.random() * (number -1 + 1)) + 1;
+    message.channel.send (deleteThis[imageNumber])
+    return;
 }
 
 function botMentioned(message) {
