@@ -1,0 +1,22 @@
+{
+    "seriesList": {
+    },
+
+    "characterAppearances": {
+        "Space Pirate Captain Harlock (manga)" : ["Captain Phantom F. Harlock III", "Tadashi Daiba", "Kei Yuki", "Yattaran", "Miime/Mimay", "Miss Masu", "Queen Lafresia.", "Tochiro Oyama (mentioned, computer)", "Emeraldas (mentioned)"],
+        "Space Pirate Captain Harlock (1978 Anime)" : ["Captain Phantom F. Harlock III", "Tadashi Daiba", "Kei Yuki", "Yattaran", "Miime/Mimay", "Miss Masu", "Queen Lafresia.", "Chief Engineer Meji", "Mayu Oyama", "Commander Kiruta", "Tochiro Oyama (flashback, computer)", "Emeraldas (flashback)"],
+        "Galaxy Express 999 (Manga, Anime)" : ["Tetsuro Hoshino", "Matel", "The Conductor", "Queen Promethium", "Claire", "Emeraldas (cameo)", "Captain Harlock (cameo)"],
+        "Galaxy Express 999 (Movie)": ["Tetsuro Hoshino", "Maetel", "The Conductor", "Claire", "Queen Promethium", "Faust", "Emeraldas", "Tochiro Oyama", "Captain Harlock", "Kei Yuki", "Yattaran", "Dr. Zero", "Chief Engineer Meji", "Mii-kun"],
+        "Queen Emeraldas": ["Emeraldas,", "Hiroshi Umino.", "Tochiro (mentioned)", "Harlock (flashback, cameo)"],
+        "Queen Millennia": ["La Andromeda Promethium II aka Yayoi Yukino (Queen Millennia)", "Hajime Amamori", "Professor Amamori", "Holy Queen Larela"],
+        "Galaxy Railways": ["Tetsuro Hoshino (OVA only)", "Maetel (OVA only)"],
+        "Harlock Saga": ["Captain Harlock", "Miime/Mimay", "Tochiro Oyama", "Emeraldas", "Tadashi Daiba", "Maetel (cameo)"],
+        "Space Battleship Yamato": ["Captain Harlock (Manga only. Mamoru Kodai assumes the name after the Battle of Pluto)"],
+        "Cosmo Warrior Zero": ["Warrius Zero", "Marina Oki", "Captain Harlock", "Tochio Oyama", "Emeraldas", "Yattaran", "Maetel (cameo)"],
+        "Maetel Legend": ["Maetel", "Emeraldas", "Queen Andromeda Promethium (Queen Millennia)"],
+        "Space Symphony Maetel": ["Maetel", "Emeraldas", "Nazca", "Captain Harlock", "Tochiro Oyama", "The Conductor"],
+        "Arcadia of My Youth": ["Captain Harlock", "Tochiro Oyama", "Emeraldas", "Miime/Mimay", "Maya"],
+        "Endless Orbit SSX": ["Captain Harlock", "Tochiro Oyama", "Emeraldas", "Miime/Mimay", "Tadashi Monono", "Rebi", "Dr. Ban", "Kei Yuki", "Mii-kun", "Feydar Zone", "Maetel (cameo)"],
+        "Captain Harlock: Space Pirate (2013)": ["Captain Harlock", "Kei Yuki", "Yattaran", "Tochiro Oyama (flashback, computer)", "Miime/Mimay"]
+    }
+}
