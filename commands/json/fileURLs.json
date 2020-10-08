@@ -1,4 +1,6 @@
-{ "characterFiles": {
+{
+    "characterNames": ["harlock", "tochiro", "emeraldas", "maetel", "mii-kun", "miime", "warrius-zero", "susumu-kodai"],
+    "characterFiles": {
     "emeraldas": [],
     "harlock": [
         "https://imgur.com/5rH5nQ3",

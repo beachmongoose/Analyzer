@@ -1,28 +1,34 @@
 /* eslint-disable no-undef */
 // For messages that start by mentioning bot
-const { botID, botNicknameID,
-statusInput, statusAnswer,
-stockCompliments,
-stockThanks, stockThanksReturn,
+module.exports.askAnalyzer = askAnalyzer;
+module.exports.cursedImage = cursedImage;
+module.exports.toHandlerThree = toHandlerThree;
+
+const methods = require('./helpers/methods');
+const handler3 = require('./handler3')
+const { statusInput, statusAnswer,
+complimentInput,
+thanksInput, thanksAnswer,
 aboutInput, aboutAnswer
 } = require('./json/conversation.json')
-const { prefixCommand } = require('./modules/handler3.js')
-const { getIDCount, calculate } = require('./helpers/methods.js')
+const { deleteThis } = require('./json/fileURLs.json')
 
 function askAnalyzer(message) {
-    if (!message.content.startsWith(botID) && (!message.content.startsWith(botNicknameID))) {
-        return message.channel.send `PRESENT.`
+    if (methods.botNotInPrefix(message)) {
+        message.channel.send `PRESENT.`
     }
-    let idCount = getIDCount(message)
+    let idCount = methods.getIDCount(message)
     const input = String(message.content.slice(idCount.length).toLowerCase())
     if (input === "") {
         message.channel.send `PRESENT.`
         return
       }
     checkForPhrasesIn(input, message)
+    return;
 }
 
 function checkForPhrasesIn(input, message) {
+    console.log(input)
     if (input === "cursed image alert") {
         cursedImage(message)
     }
@@ -33,19 +39,19 @@ function checkForPhrasesIn(input, message) {
             return;
         }
     }
-    for (entry in stockCompliments) {
-        let keyPhrase = String(stockCompliments[entry])
+    for (entry in complimentInput) {
+        let keyPhrase = String(complimentInput[entry])
         if (input.includes(keyPhrase)) {
             let name = String(message.author).toUpperCase()
             message.channel.send(`THANK YOU, ` + name + `.`)
             return;
         }
     }
-    for (entry in stockThanks) {
-        let keyPhrase = String(stockThanks[entry])
+    for (entry in thanksInput) {
+        let keyPhrase = String(thanksInput[entry])
         if (input.includes(keyPhrase)) {
             // let name = String(message.author).toUpperCase()
-            message.channel.send(randomItem(stockThanksReturn))
+            message.channel.send(methods.randomItem(thanksAnswer))
             return;
         }
     }
@@ -57,9 +63,10 @@ function checkForPhrasesIn(input, message) {
         }
     }
     if (input.includes('calculate')) {
-        calculate(input, message)
+        methods.calculate(input, message)
         return
     }
+    return;
 }
 
 function cursedImage(message) {
@@ -70,5 +77,5 @@ function cursedImage(message) {
 }
 
 function toHandlerThree(message) {
-    prefixCommand(message)
+    handler3.prefixCommand(message)
 }

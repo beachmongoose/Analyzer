@@ -1,17 +1,19 @@
 /* eslint-disable no-undef */
 // for messages that start with prefix
-const { calculate } = require('./helpers/methods.js')
-const { characterFiles } = require('./json/fileURLs.json')
+module.exports.prefixCommand = prefixCommand
+const methods = require('./helpers/methods.js')
+const { characterFiles, characterNames } = require('./json/fileURLs.json')
 
 function prefixCommand(message) {
-    const input = message.content.slice(prefix.length).trim().split(' ');
+    const input = message.content.slice(methods.prefix.length).trim().split(' ');
     const command = input.shift().toLowerCase();
     switch(command) {
         case 'file':
+            console.log(accessFile)
             accessFile(input, message)
             break;
         case 'calculate':
-            calculate(input, message)
+            methods.calculate(input, message)
             break;
         case 'help':
             console.log('help')
@@ -27,19 +29,19 @@ function prefixCommand(message) {
         default:
             console.log('no input.')
     }
-    }
+}
 
     function accessFile(input, message) {
         let query = String(input[0]).toLowerCase()
-        console.log()
-        for (entry in archiveNames) {
-            let name = String(archiveNames[entry])
+        for (entry in characterNames) {
+            let name = String(characterNames[entry])
             if (query === name) {
                 let characterFile = characterFiles[name]
                 let number = characterFile.length;
                 console.log(number)
                 let imageNumber = Math.floor (Math.random() * (number - 1 + 1)) + 1;
                 message.channel.send (characterFile[imageNumber])
+                return;
             }
          }
     }
