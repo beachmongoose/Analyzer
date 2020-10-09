@@ -1,8 +1,9 @@
 /* eslint-disable no-undef */
 const Discord = require('discord.js');
 const { token } = require('./config.json')
-const handler1 = require('./commands/handler1.js');
+const handler1 = require(`./handlers/handler1`);
 const client = new Discord.Client();
+
 
 client.once('ready', () => {
 	console.log('online');
@@ -13,10 +14,10 @@ client.on('message', (message) => {
          return; }
     
     try {
-        handler1.execute(message);
+        handler1.initialRead(message)
     } catch {
+        console.log('unable to move to handler1')
         console.error(error);
-        message.reply('unable to move to handler')
     }
 });
 

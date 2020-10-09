@@ -4,14 +4,14 @@ module.exports.askAnalyzer = askAnalyzer;
 module.exports.cursedImage = cursedImage;
 module.exports.toHandlerThree = toHandlerThree;
 
-const methods = require('./helpers/methods');
+const methods = require('./commands/helpers/methods');
 const handler3 = require('./handler3')
 const { statusInput, statusAnswer,
-complimentInput,
 thanksInput, thanksAnswer,
-aboutInput, aboutAnswer
-} = require('./json/conversation.json')
-const { deleteThis } = require('./json/fileURLs.json')
+aboutInput, aboutAnswer,
+complimentInput
+} = require('./commands/json/conversation.json')
+const { deleteThis } = require('./commands/json/fileURLs.json')
 
 function askAnalyzer(message) {
     if (methods.botNotInPrefix(message)) {

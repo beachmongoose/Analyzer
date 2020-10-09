@@ -5,7 +5,11 @@ module.exports.getIDCount = getIDCount;
 module.exports.botMentioned = botMentioned;
 module.exports.calculate = calculate;
 module.exports.botNotInPrefix = botNotInPrefix;
+module.exports.properSeriesName = properSeriesName;
+module.exports.isInSeries = isInSeries;
+module.exports.fullNameFor = fullNameFor;
 
+const { seriesList, characterAppearances } = require('../json/seriesGuides.json')
 const { botID, botNicknameID, prefix } = require('/Users/maggie/Development/Javascript/Analyzer/config.json')
 module.exports.prefix = prefix;
 
@@ -41,4 +45,37 @@ function calculate(input, message) {
     }
     message.channel.send(`CALCULATED PROBABILITY IS ` + Math.floor(Math.random() * 101) + `%.`)
     return;
+}
+
+function properSeriesName(name) {
+    for (entry in seriesList) {
+        let series = seriesList[entry]
+        if (series.toLowerCase() === name.toLowerCase()) {
+            return series
+        }
+     }
+    return ""
+}
+
+function isInSeries(character, series) {
+    if ( series == "" ) { return false }
+        let array = characterAppearances[series]
+        for (entry in array) {
+            let name = String(array[entry]).toLowerCase()
+            if (name.includes(character.toLowerCase())) {
+            return true
+        }
+    }
+    return false
+}
+
+function fullNameFor(character, series) {
+    let array = characterAppearances[series]
+    for (entry in array) {
+        let name = String(array[entry]).toLowerCase()
+        if (name.includes(character.toLowerCase())) {
+            return name
+        }
+    }
+    return character
 }

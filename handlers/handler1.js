@@ -1,15 +1,10 @@
 /* eslint-disable no-undef */
 // For messages that do not start with @ or ! but contain special words/phrases that trigger responses.
-module.exports = {
-    name: 'handler1',
-    description: 'handler1',
-    execute(message) {
-        initialRead(message)
-    }
-}
-const { messageInput, messageAnswer } = require('./json/easterEggs.json')
-const handler2 = require('./handler2.js');
-const methods = require('./helpers/methods')
+module.exports.initialRead = initialRead
+
+const { messageInput, messageAnswer } = require('./commands/json/easterEggs.json')
+const handler2 = require('./handler2');
+const methods = require('./commands/helpers/methods')
 
 function initialRead(message) {
     checkDeleteRequest(message)
