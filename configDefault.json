@@ -1,0 +1,7 @@
+{
+    "prefix": "!",
+    "botID": "<BOT ID",
+    "botNicknameID": "<BOT NICKNAME ID>",
+    "token": "TOKEN GOES HERE",
+    "type": "module"
+    }

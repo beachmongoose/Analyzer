@@ -16,8 +16,8 @@ function prefixCommand(message) {
             seriesCharacters(input, message)
             break;
         case 'character-check':
-             characterCheck(input, message)
-             break;
+            characterCheck(input, message)
+            break;
         case 'content-warning':
             contentWarning(input, message)
             break;
@@ -50,33 +50,6 @@ function seriesCharacters(input, message) {
     return;
 }
 
-function accessFile(input, message) {
-    let query = String(input[0]).toLowerCase()
-    for (entry in characterNames) {
-        let name = String(characterNames[entry])
-        if (query === name) {
-            let characterFile = characterFiles[name]
-            let number = characterFile.length;
-            let imageNumber = Math.floor (Math.random() * (number - 1 + 1)) + 1;
-            message.channel.send (characterFile[imageNumber])
-            return;
-            }
-         }
-    }
-
-function contentWarning(input, message) {
-    if (!input.length) {
-        return message.channel.send("PLEASE PROVIDE SERIES NAME.")
-    }
-    let submittedName = input.join(" ")
-    let seriesName = properSeriesName(submittedName)
-    if (seriesName == "") {
-        message.channel.send(`UNKNOWN SERIES.`)
-    }
-    let warnings = contentWarnings[seriesName]
-    message.channel.send(`CONTENT WARNINGS IN ` + seriesName.toUpperCase() + ` INCLUDE: ||` + warnings.toUpperCase() + `.||`)
-}
-
 function characterCheck(input, message) {
     const removeIs = input.shift()
     let joined = input.join(' ')
@@ -103,6 +76,33 @@ function characterCheck(input, message) {
     }
     return;
 }
+
+function contentWarning(input, message) {
+    if (!input.length) {
+        return message.channel.send("PLEASE PROVIDE SERIES NAME.")
+    }
+    let submittedName = input.join(" ")
+    let seriesName = properSeriesName(submittedName)
+    if (seriesName == "") {
+        message.channel.send(`UNKNOWN SERIES.`)
+    }
+    let warnings = contentWarnings[seriesName]
+    message.channel.send(`CONTENT WARNINGS IN ` + seriesName.toUpperCase() + ` INCLUDE: ||` + warnings.toUpperCase() + `.||`)
+}
+
+function accessFile(input, message) {
+    let query = String(input[0]).toLowerCase()
+    for (entry in characterNames) {
+        let name = String(characterNames[entry])
+        if (query === name) {
+            let characterFile = characterFiles[name]
+            let number = characterFile.length;
+            let imageNumber = Math.floor (Math.random() * (number - 1 + 1)) + 1;
+            message.channel.send (characterFile[imageNumber])
+            return;
+            }
+         }
+    }
 
 function properSeriesName(name) {
     for (entry in seriesList) {
