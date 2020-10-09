@@ -2,10 +2,12 @@
  "messageInput":
         [ "scan the surrounding area",
         "enemy ship",
-        "i could use some sake"
+        "i could use some sake",
+        "uchuu no umi wa ore no umi"
         ],
 "messageAnswer": ["NO OTHER VESSELS WITHIN RADAR.",
     "ENEMY SHIP. ALL PERSONNEL TO LEVEL 1 BATTLE STATIONS.",
-    "I WOULD ADVISE NOT DRINKING WHILE ON DUTY."
+    "I WOULD ADVISE NOT DRINKING WHILE ON DUTY.",
+    "ORE NO, HATESHINAI, AKOGARE SA"
     ]
 }
