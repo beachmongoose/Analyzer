@@ -27,7 +27,6 @@ function checkDeleteRequest(message) {
 }
 
 function checkEasterEggs(message) {
-    console.log('easter eggs')
     let text = String(message.content).toLowerCase()
     for (entry in messageInput) {
         let keyPhrase = String(messageInput[entry])
