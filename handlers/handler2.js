@@ -28,7 +28,6 @@ function askAnalyzer(message) {
 }
 
 function checkForPhrasesIn(input, message) {
-    console.log(input)
     if (input === "cursed image alert") {
         cursedImage(message)
     }

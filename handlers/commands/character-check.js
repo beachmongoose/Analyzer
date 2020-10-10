@@ -16,7 +16,6 @@ module.exports = {
     
         let character = String(parts[0])
         let series = String(parts[1])
-        console.log(series)
         let seriesName = checkAlias(series)
         if (seriesName == "") {
             message.channel.send(`UNKNOWN SERIES.`)
