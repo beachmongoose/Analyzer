@@ -13,27 +13,14 @@ for (const file of commandFiles) {
 
 function prefixCommand(message) {
     const input = message.content.slice(methods.prefix.length).trim().split(' ');
-    const command = input.shift().toLowerCase();
-    switch(command) {
-        case 'calculate':
-            methods.calculate(input, message)
-            break;
-        case 'characters':
-            commandList.get('characters').seriesCharacters(input, message)
-            break;
-        case 'character-check':
-            commandList.get('character-check').characterCheck(input, message)
-            break;
-        case 'content-warning':
-            commandList.get('content-warning').contentWarning(input, message)
-            break;
-        case 'file':
-            commandList.get('file').accessFile(input, message)
-            break;
-        case 'help':
-            commandList.get('help').helpRequest(message)
-            break;
-        default:
-            break;
+    const command = String(input.shift().toLowerCase());
+    if (commandList.get(command) === undefined ) {
+        return;
+    }
+    try {
+        commandList.get(command).execute(message, input);
+    } catch (error) {
+        console.error(error);
+        console.log("made it to handler 3 but crashed")
     }
 }

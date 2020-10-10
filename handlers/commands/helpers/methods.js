@@ -8,9 +8,11 @@ module.exports.botNotInPrefix = botNotInPrefix;
 module.exports.properSeriesName = properSeriesName;
 module.exports.isInSeries = isInSeries;
 module.exports.fullNameFor = fullNameFor;
+module.exports.checkAlias = checkAlias;
 
 const { seriesList, characterAppearances } = require('../json/seriesGuides.json')
 const { botID, botNicknameID, prefix } = require('/Users/maggie/Development/Javascript/Analyzer/config.json')
+const { seriesAliases } = require('../json/seriesAliases')
 module.exports.prefix = prefix;
 
 function randomItem(items) {
@@ -54,6 +56,21 @@ function properSeriesName(name) {
             return series
         }
      }
+    return ""
+}
+
+function checkAlias(name) {
+    for (entry in seriesAliases) {
+        let series = seriesAliases[entry]
+        let seriesName = series.name
+        let aliasList = series.aliases
+        for (index in aliasList) {
+            let alias = aliasList[index]
+            if (name.includes(alias)) {
+                return seriesName;
+            }
+        }
+    }
     return ""
 }
 

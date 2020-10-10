@@ -42,7 +42,7 @@ function checkForPhrasesIn(input, message) {
     for (entry in complimentInput) {
         let keyPhrase = String(complimentInput[entry])
         if (input.includes(keyPhrase)) {
-            let name = String(message.author).toUpperCase()
+            let name = String(message.member.displayName).toUpperCase()
             message.channel.send(`THANK YOU, ` + name + `.`)
             return;
         }
@@ -50,8 +50,8 @@ function checkForPhrasesIn(input, message) {
     for (entry in thanksInput) {
         let keyPhrase = String(thanksInput[entry])
         if (input.includes(keyPhrase)) {
-            // let name = String(message.author).toUpperCase()
-            message.channel.send(methods.randomItem(thanksAnswer))
+            let name = String(message.member.displayName).toUpperCase()
+            message.channel.send(methods.randomItem(thanksAnswer) + name + ".")
             return;
         }
     }
