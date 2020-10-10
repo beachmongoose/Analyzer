@@ -40,7 +40,6 @@ function botNotInPrefix(message) {
 
 function calculate(input, message) {
     const request = String(input).replace('calculate','');
-    console.log(request)
     if (request.length <= 1) {
         message.channel.send `NO QUERY PROVIDED.`
         return;
