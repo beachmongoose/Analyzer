@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 // for messages that start with prefix
 module.exports.prefixCommand = prefixCommand
+const methods = require('./commands/helpers/methods')
 
 const fs = require('fs');
 let commandList = new Map()

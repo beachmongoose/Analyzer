@@ -8,7 +8,7 @@ module.exports = {
         let query = String(input[0]).toLowerCase()
         for (entry in characterNames) {
             let name = String(characterNames[entry])
-            if (query === name) {
+            if (name.includes(query)) {
                 let characterFile = characterFiles[name]
                 let number = characterFile.length;
                 let imageNumber = Math.floor (Math.random() * (number - 1 + 1)) + 1;
@@ -16,5 +16,6 @@ module.exports = {
                 return;
             }
         }
+        return;
     }
 }
