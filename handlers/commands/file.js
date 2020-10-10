@@ -3,9 +3,13 @@ const { characterFiles, characterNames } = require('./json/fileURLs.json')
 
 module.exports = {
     name: 'file',
-    description: 'FORMAT AS: ```!file CHARACTER NAME```\nPROVIDES A RANDOM FILE FROM RECORDS PERTAINING TO THE SPECIFIED CHARACTER.',
-    accessFile(input, message) {
+    description: 'FORMAT AS: ```!file CHARACTER NAME```\nPROVIDES A RANDOM FILE FROM RECORDS PERTAINING TO THE SPECIFIED CHARACTER. MESSAGE ```!file list``` FOR AVAILABLE CHARACTERS.',
+    execute(message, input) {
         let query = String(input[0]).toLowerCase()
+        if (query === "list") {
+            let characters = characterNames.join("\n")
+            message.channel.send('AVAILABLE RECORDS: ```' + characters.toUpperCase() + '```')
+        }
         for (entry in characterNames) {
             let name = String(characterNames[entry])
             if (name.includes(query)) {

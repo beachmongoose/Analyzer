@@ -1,18 +1,23 @@
 /* eslint-disable no-undef */
-const { properSeriesName, isInSeries, fullNameFor } = require('./helpers/methods')
+const { checkAlias, isInSeries, fullNameFor } = require('./helpers/methods')
 
 module.exports = {
     name: 'character-check',
-    description: 'FORMAT AS: !character-check CHARACTER in SERIES```\nCONFIRM WHETHER OR NOT A RECYCLED LEIJI CHARACTER APPEARS IN A GIVEN SERIES.',
-    characterCheck(input, message) {
+    description: 'FORMAT AS: !character-check is CHARACTER in SERIES```\nCONFIRM WHETHER OR NOT A RECYCLED LEIJI CHARACTER APPEARS IN A GIVEN SERIES.',
+    execute(message, input) {
+        let is = String(input[0])
+        if (!is.includes("is")) {
+            message.channel.send("INCORRECT FORMAT. CORRECT FORMAT:\n```!character-check is CHARACTER in SERIES```")
+            return;
+        }
         const removeIs = input.shift()
         let joined = input.join(' ')
         let parts = joined.split(" in ")
     
-        let character = parts[0]
-        let series = parts[1]
-    
-        let seriesName = properSeriesName(series)
+        let character = String(parts[0])
+        let series = String(parts[1])
+        console.log(series)
+        let seriesName = checkAlias(series)
         if (seriesName == "") {
             message.channel.send(`UNKNOWN SERIES.`)
         }

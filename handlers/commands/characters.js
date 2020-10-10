@@ -5,7 +5,7 @@ const { seriesList, characterAppearances } = require('./json/seriesGuides.json')
 module.exports = {
     name: 'characters',
     description: 'FORMAT AS: ```!characters in SERIES```\nPROVIDES DATA ON WHICH CHARACTERS ARE IN A SPECIFIED SERIES.',
-    seriesCharacters(input, message) {
+    execute(message, input) {
         if (!input.length) {
             return message.channel.send("PLEASE PROVIDE SERIES NAME.")
         }
