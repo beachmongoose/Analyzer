@@ -1,0 +1,24 @@
+{
+    "helpMenu": "```Analyzer 1.0, a Leiji-themed Discord bot.\n
+    @Analyzer Commands (Commands accessed by @ing Analyzer):\n
+    @about - Analyzer will tell you about himself\n
+    @calculate - Calculates the probability of a given scenario\n
+    @cursedImageAlert - Posts a request for deletion of the previous post (as a joke)\n
+    Analyzer will also respond to certain compliments, thank yous, and easter egg phrases\n
+    \n
+    !prefix Commands (Commands accessed by prefixing post with !\n
+    !all series - Provides a list of all series in Analyzer's database\n
+    !calculate - Calculates the probability of a given scenario\n
+    !character-check - Format as: !character-check is CHARACTER in SERIES\n
+    Confirms whether or not a recycled Leiji character appears in a series\n
+    !characters - Format as: !characters in SERIES\n
+    Provides list of characters that appear in specified series (limited to recurring characters)\n
+    !content-warning - Format as: !content-warning SERIES NAME\n
+    Provides content warnings for specified series\n
+    !file - Format as: !file CHARACTER NAME\n
+    Provides a random photo of requested character\n
+    !help - Will make this appear\n
+    !op - Format as: !op SERIES\n
+    Posts a link to the OP of the specified series```"
+
+}

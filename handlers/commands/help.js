@@ -3,6 +3,6 @@ module.exports = {
     name: 'help',
     description: 'FORMAT AS: ```!help```\nPROVIDES INFORMATION ON AVAILABLE COMMANDS.',
     execute(message, input) {
-        console.log('help accessed')
+        message.channel.send("```" + "Analyzer 1.0, a Leiji-themed Discord bot.\n\n@Analyzer Commands (Commands accessed by @ing Analyzer):\n@about - Analyzer will tell you about himself\n@calculate - Calculates the probability of a given scenario\n@cursedImageAlert - Posts a request for deletion of the previous post (as a joke)\nAnalyzer will also respond to certain compliments, thank yous, and easter egg phrases\n\n!prefix Commands (Commands accessed by prefixing post with !\n!all series - Provides a list of all series in Analyzer's database\n!calculate - Calculates the probability of a given scenario\n!character-check - Format as: !character-check is CHARACTER in SERIES\nConfirms whether or not a recycled Leiji character appears in a series\n!characters - Format as: !characters in SERIES\nProvides list of characters that appear in specified series (limited to recurring characters)\n!content-warning - Format as: !content-warning SERIES NAME\nProvides content warnings for specified series\n!file - Format as: !file CHARACTER NAME\nProvides a random photo of requested character\n!help - Will make this appear\n!op - Format as: !op SERIES\nPosts a link to the OP of the specified series" + "```")
     }
 }

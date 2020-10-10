@@ -3,7 +3,6 @@ const { seriesList } = require('./json/seriesGuides.json')
 
 module.exports = {
     name: 'all',
-    aliases: ['every']
     description: 'FORMAT AS: ```!all series```\nPROVIDES A LIST OF ALL LEIJI MATSUMOTO SERIES WITHIN THE DATABASE',
     execute(message, input) {
     let series = seriesList.join("\n")
