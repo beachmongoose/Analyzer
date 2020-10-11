@@ -28,13 +28,13 @@ function askAnalyzer(message) {
 }
 
 function checkForPhrasesIn(input, message) {
-    if (input === "cursed image alert") {
-        cursedImage(message)
-    }
-
     if (input.includes('calculate')) {
         execute(message, input)
         return;
+    }
+
+    if (input === "cursed image alert") {
+        cursedImage(message)
     }
 
     if (isInArray(input, statusInput)) {
