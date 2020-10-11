@@ -16,6 +16,7 @@ module.exports = {
                 let characterFile = characterFiles[name]
                 let number = characterFile.length;
                 let imageNumber = Math.floor (Math.random() * (number - 1 + 1)) + 1;
+                console.log("got image number")
                 message.channel.send (characterFile[imageNumber])
                 return;
             }

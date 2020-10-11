@@ -3,14 +3,13 @@
 module.exports.randomItem = randomItem;
 module.exports.getIDCount = getIDCount;
 module.exports.botMentioned = botMentioned;
-module.exports.calculate = calculate;
 module.exports.botNotInPrefix = botNotInPrefix;
-module.exports.properSeriesName = properSeriesName;
 module.exports.isInSeries = isInSeries;
 module.exports.fullNameFor = fullNameFor;
 module.exports.checkAlias = checkAlias;
+module.exports.isInArray = isInArray;
 
-const { seriesList, characterAppearances } = require('../json/seriesGuides.json')
+const { characterAppearances } = require('../json/seriesGuides.json')
 const { botID, botNicknameID, prefix } = require('/Users/maggie/Development/Javascript/Analyzer/config.json')
 const { seriesAliases } = require('../json/seriesAliases')
 module.exports.prefix = prefix;
@@ -36,26 +35,6 @@ function botMentioned(message) {
 function botNotInPrefix(message) {
     const text = String(message.content)
     return (!text.startsWith(botID) && (!text.startsWith(botNicknameID)))
-}
-
-function calculate(input, message) {
-    const request = String(input).replace('calculate','');
-    if (request.length <= 1) {
-        message.channel.send `NO QUERY PROVIDED.`
-        return;
-    }
-    message.channel.send(`CALCULATED PROBABILITY IS ` + Math.floor(Math.random() * 101) + `%.`)
-    return;
-}
-
-function properSeriesName(name) {
-    for (entry in seriesList) {
-        let series = seriesList[entry]
-        if (series.toLowerCase() === name.toLowerCase()) {
-            return series
-        }
-     }
-    return ""
 }
 
 function checkAlias(name) {
@@ -94,4 +73,14 @@ function fullNameFor(character, series) {
         }
     }
     return character
+}
+
+function isInArray(input, array) {
+    for (entry in array) {
+        let keyPhrase = String(array[entry])
+        if (input.includes(keyPhrase)) {
+            return true
+        }
+    }
+    return false
 }
