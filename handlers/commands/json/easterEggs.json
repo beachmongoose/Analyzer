@@ -3,11 +3,17 @@
         [ "scan the surrounding area",
         "enemy ship",
         "i could use some sake",
-        "uchuu no umi wa ore no umi"
+        "uchuu no umi wa ore no umi",
+        "red sweater",
+        "brobot",
+        "what is the meaning of life"
         ],
 "messageAnswer": ["NO OTHER VESSELS WITHIN RADAR.",
     "ENEMY SHIP. ALL PERSONNEL TO LEVEL 1 BATTLE STATIONS.",
     "I WOULD ADVISE NOT DRINKING WHILE ON DUTY.",
-    "ORE NO, HATESHINAI AKOGARE SA."
+    "ORE NO, HATESHINAI AKOGARE SA.",
+    "IT IS ADVISABLE NOT TO THINK ABOUT THE RED SWEATER INCIDENT.",
+    "IT IS ADVISABLE NOT TO DISCUSS BROBOT",
+    "42."
     ]
 }

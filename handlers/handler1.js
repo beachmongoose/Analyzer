@@ -3,22 +3,24 @@
 module.exports.initialRead = initialRead
 
 const { messageInput, messageAnswer } = require('./commands/json/easterEggs.json')
-const handler2 = require('./handler2');
+const { cursedImage } = require('./commands/cursedImageAlert');
+const handler2 = require('./handler2')
 const methods = require('./commands/helpers/methods')
 
 function initialRead(message) {
     checkDeleteRequest(message)
     checkEasterEggs(message)
-
     moveToNextHandler(message)
+    return;
 }
 
 function checkDeleteRequest(message) {
     let text = String(message.content).toLowerCase()
     if (text.includes('delete this') || text.includes('thanks i hate it')) {
-        handler2.cursedImage(message)
+        cursedImage(message)
         return;
     }
+    return;
 }
 
 function checkEasterEggs(message) {
@@ -35,6 +37,7 @@ function checkEasterEggs(message) {
 function moveToNextHandler(message) {
     if (methods.botMentioned(message)) {
         handler2.askAnalyzer(message)
+        return;
     }
     if (message.content.startsWith(methods.prefix)) {
         handler2.toHandlerThree(message);

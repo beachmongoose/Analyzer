@@ -17,6 +17,9 @@ let seriesAliases = [
         {name: "Captain Harlock: Space Pirate (2013)", aliases: ["captain harlock: space pirate (2013)", "cgi harlock", "harlock cgi", "harlock 2013"] },
         {name: "Captain Harlock: Dimensional Voyage", aliases: ["captain harlock: dimensional voyage", "captain harlock dv", "harlock dv", "dimensional voyage"] },
         {name: "Captain Harlock: Endless Odyssey", aliases: ["captain harlock: endless odyssey", "captain herlock", "captain herlock: outside legend", "captain harlock eo", "captain harlock outside legend"] },
-        {name: "Gun Frontier", aliases: ["gun frontier", "gf"] }
+        {name: "Gun Frontier", aliases: ["gun frontier", "gf"]}
+        // {name: "Ozma", aliases: ["ozma", "ozuma"]}
+        // {name: "Interstella 5555", aliases: "interstella 5555", "interstella"},
+        // {name: "Submarine Super 99", aliases: "submarine super 99", "ss99", "ss 99"}
 ]
 module.exports.seriesAliases = seriesAliases
