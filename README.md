@@ -1,14 +1,17 @@
-# Analyzer
+<img width="191" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="REPORTING FOR DUTY." src="https://imgur.com/6WYVm3G.png">  
 
-Analyzer is a discord.js bot which retrieves information, links, and content for series created by Leiji Matsumoto.
+# Analyzer
+![](https://img.shields.io/github/package-json/v/beachmongoose/analyzer)[![](https://img.shields.io/badge/discord.js-v12.0.0-blue.svg)](https://github.com/discordjs)<br/><br/><br/>
+A JavaScript Discord bot which retrieves information, links, and content for series created by Leiji Matsumoto.
 
 Can be repurposed for use with any series or content creator.
 
 ## Installation
-1. Make sure [Node](https://nodejs.org/en/) is installed
+1. Make sure Node is installed either from the [website](https://nodejs.org/en/) or via the terminal with [Homebrew](https://brew.sh/).
 2. Clone this repository
-3. Install npm (globally or locally to the containing folder)
+3. Install discord.js with Node
 4. Rename configDefault.json to config.json and add your bot's token where specified.
+5. Make sure gitignore covers the config.json file
 5. To reskin for a different purpose, just replace the character names, series info (including aliases), and image links.
 
 ## Commands
@@ -52,3 +55,6 @@ Posts a "delete this" image. (Can also be called by any messages containing "tha
 Analyzer will also respond to certain greetings, thank yous, and compliments.
 
 Specific easter egg phrases in unformatted messages will also prompt responses.
+
+## Acknowledgements
+Thank you to the Sea of Stars discord server for bug testing.

@@ -5,10 +5,10 @@ module.exports.toHandlerThree = toHandlerThree;
 
 const { botNotInPrefix, isInArray, getIDCount, randomItem } = require('./commands/helpers/methods');
 const handler3 = require('./handler3')
-const { statusInput, statusAnswer,
-thanksInput, thanksAnswer,
-aboutInput, aboutAnswer,
-complimentInput, greetingInput
+const { aboutInput, aboutAnswer,
+    complimentInput, greetingInput,
+    statusInput, statusAnswer,
+    thanksInput, thanksAnswer
 } = require('./commands/json/conversation.json')
 const { cursedImage } = require('./commands/cursedImageAlert');
 const { execute } = require('./commands/calculate')
@@ -35,35 +35,48 @@ function checkForPhrasesIn(input, message) {
 
     if (input === "cursed image alert") {
         cursedImage(message)
+        return;
     }
 
-    if (isInArray(input, statusInput)) {
-        message.channel.send(statusAnswer[entry])
+    checkMentions(input, message)
+    return;
+}
+
+function checkMentions(input, message) {
+    let index = checkMentionInput(input)
+    if (index == null){
         return;
     }
 
     let name = userNickname(message)
-    if (isInArray(input, complimentInput)) {
-        message.channel.send(`THANK YOU, ` + name + `.`)
-        return;
+    switch(index) {
+        case "0":
+            message.channel.send(aboutAnswer)
+            break;
+        case "1":
+            message.channel.send(`THANK YOU, ` + name + `.`)
+            break;
+        case "2":
+            message.channel.send("HELLO, " + name + ".")
+            break;
+        case "3":
+            message.channel.send(randomItem(statusAnswer))
+            break;
+        case "4":
+            message.channel.send(randomItem(thanksAnswer) + name + ".")
+            break;
     }
-
-    if (isInArray(input, thanksInput)) {
-        message.channel.send(randomItem(thanksAnswer) + name + ".")
-        return;
-    }
-
-    if (isInArray(input, greetingInput)) {
-        message.channel.send("HELLO, " + name + ".")
-        return;
-    }
-
-    if (isInArray(input, aboutInput)) {
-        message.channel.send(aboutAnswer)
-        return;
-    }
-
     return;
+}
+
+function checkMentionInput(input) {
+    let userInputs = [aboutInput, complimentInput, greetingInput, statusInput, thanksInput]
+    for (index in userInputs) {
+        let array = userInputs[index]
+        if (isInArray(input, array)) {
+            return index
+        }
+    }
 }
 
 function toHandlerThree(message) {
