@@ -28,7 +28,8 @@ Confirms whether or not a recycled Leiji character appears in a series.
 
 ```!characters in SERIES```  
 Provides list of characters that appear in specified series (limited to recurring characters)
-!content-warning SERIES```  
+
+```!content-warning SERIES```  
 Provides content warnings for specified series
 
 ```!file CHARACTER```  
@@ -43,10 +44,10 @@ Posts a YouTube link to the opening of the specified series.
 ## Responses
 > Accessed by mentioning the bot and including certain words/phrases.
 
-```@Analyzer about```
+```@Analyzer about```  
 Analyzer will tell you about himself.
 
-```@Analyzer calculate```
+```@Analyzer calculate```  
 Same as !calculate command.
 
 ```@Analyzer cursed image alert```  
