@@ -47,17 +47,16 @@ function checkMentions(input, message) {
     if (index == null){
         return;
     }
-
     let name = userNickname(message)
     switch(index) {
         case "0":
             message.channel.send(aboutAnswer)
             break;
         case "1":
-            message.channel.send(`THANK YOU, ` + name + `.`)
+            message.channel.send(`THANK YOU, ${name}.`)
             break;
         case "2":
-            message.channel.send("HELLO, " + name + ".")
+            message.channel.send(`HELLO, ${name}.`)
             break;
         case "3":
             message.channel.send(randomItem(statusAnswer))

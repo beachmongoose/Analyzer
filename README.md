@@ -1,7 +1,7 @@
 <img width="191" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="REPORTING FOR DUTY." src="https://imgur.com/6WYVm3G.png">  
 
 # Analyzer
-![](https://img.shields.io/github/package-json/v/beachmongoose/analyzer)[![](https://img.shields.io/badge/discord.js-v12.0.0-blue.svg)](https://github.com/discordjs)<br/><br/><br/>
+![](https://img.shields.io/github/package-json/v/beachmongoose/analyzer) [![](https://img.shields.io/badge/discord.js-v12.0.0-blue.svg)](https://github.com/discordjs)<br/><br/><br/>
 A JavaScript Discord bot which retrieves information, links, and content for series created by Leiji Matsumoto.
 
 Can be repurposed for use with any series or content creator.
