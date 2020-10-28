@@ -1,5 +1,8 @@
 /* eslint-disable no-undef */
 
+var path = require('path');
+var appDir = path.dirname(require.main.filename);
+
 module.exports.randomItem = randomItem;
 module.exports.getIDCount = getIDCount;
 module.exports.botMentioned = botMentioned;
@@ -10,7 +13,7 @@ module.exports.checkAlias = checkAlias;
 module.exports.isInArray = isInArray;
 
 const { characterAppearances } = require('../json/seriesGuides.json')
-const { botID, botNicknameID, prefix } = require('/Users/maggie/Development/Javascript/Analyzer/config.json')
+const { botID, botNicknameID, prefix } = require(appDir + '/config.json')
 const { seriesAliases } = require('../json/seriesAliases')
 module.exports.prefix = prefix;
 
