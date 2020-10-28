@@ -38,6 +38,9 @@ Provides a random photo of requested character
 ```!help```  
 Posts the help page with list of commands/uses
 
+```!meme```
+Posts a Leijiverse meme
+
 ```!op SERIES```  
 Posts a YouTube link to the opening of the specified series.
 
