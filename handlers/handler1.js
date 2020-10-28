@@ -28,6 +28,7 @@ function checkEasterEggs(message) {
     for (entry in messageInput) {
         let keyPhrase = String(messageInput[entry])
         if (text.includes(keyPhrase)) {
+            console.log("easter egg")
             message.channel.send(messageAnswer[entry])
             return;
         }
