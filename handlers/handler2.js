@@ -5,22 +5,19 @@ module.exports.toHandlerThree = toHandlerThree;
 
 const { botNotInPrefix, isInArray, getIDCount, randomItem } = require('./commands/helpers/methods');
 const handler3 = require('./handler3')
-const { aboutInput, aboutAnswer,
-    complimentInput, greetingInput,
-    statusInput, statusAnswer,
-    thanksInput, thanksAnswer
-} = require('./commands/json/conversation.json')
+const userInputs = require('./commands/json/userInputs.json')
+const botAnswers = require('./commands/json/botAnswers.json')
 const { cursedImage } = require('./commands/cursedImageAlert');
 const { execute } = require('./commands/calculate')
 
 function askAnalyzer(message) {
     if (botNotInPrefix(message)) {
-        message.channel.send `PRESENT.`
+        message.channel.send `Yeah?`
     }
     let idCount = getIDCount(message)
     const input = String(message.content.slice(idCount.length).toLowerCase())
     if (input === "") {
-        message.channel.send `PRESENT.`
+        message.channel.send `Yeah?`
         return;
       }
     checkForPhrasesIn(input, message)
@@ -42,40 +39,36 @@ function checkForPhrasesIn(input, message) {
     return;
 }
 
-function checkMentions(input, message) {
-    let index = checkMentionInput(input)
-    if (index == null){
+async function checkMentions(input, message) {
+    let key = await checkMentionInput(input)
+    if (key == null){
         return;
     }
-    let name = userNickname(message)
-    switch(index) {
-        case "0":
-            message.channel.send(aboutAnswer)
-            break;
-        case "1":
-            message.channel.send(`THANK YOU, ${name}.`)
-            break;
-        case "2":
-            message.channel.send(`HELLO, ${name}.`)
-            break;
-        case "3":
-            message.channel.send(randomItem(statusAnswer))
-            break;
-        case "4":
-            message.channel.send(randomItem(thanksAnswer) + name + ".")
-            break;
+    console.log(`responding with ${key}`)
+    let answers = botAnswers[key]
+    let response = await randomItem(answers)
+
+    if (response.endsWith(" ")) {
+        let name = await userNickname(message)
+        message.channel.send(response + `${name}`)
+        return;
     }
+    message.channel.send(response)
     return;
 }
 
 function checkMentionInput(input) {
-    let userInputs = [aboutInput, complimentInput, greetingInput, statusInput, thanksInput]
-    for (index in userInputs) {
-        let array = userInputs[index]
-        if (isInArray(input, array)) {
-            return index
+    return new Promise(resolve => {
+        for (var key in userInputs) {
+            let array = userInputs[key]
+            if (isInArray(input, array)) {
+                let answer = key.replace("Input", "Answer")
+                resolve(answer)
+                return;
+            }
         }
-    }
+        resolve(null)
+    })
 }
 
 function toHandlerThree(message) {
@@ -83,5 +76,7 @@ function toHandlerThree(message) {
 }
 
 function userNickname(message) {
-    return String(message.member.displayName).toUpperCase()
+    return new Promise(resolve => {
+        resolve(String(message.member.displayName))
+    })
 }
