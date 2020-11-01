@@ -18,7 +18,11 @@ const { seriesAliases } = require('../json/seriesAliases')
 module.exports.prefix = prefix;
 
 function randomItem(items) {
-    return items[Math.floor(Math.random()*items.length)];
+    return new Promise(resolve => {
+        let message = items[Math.floor(Math.random()*items.length)]
+        console.log(message)
+        resolve(message)
+    })
 }
 
 function getIDCount(message) {
