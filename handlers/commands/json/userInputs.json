@@ -1,6 +1,8 @@
 {
 "aboutInput": ["what are you", "what do you do", "who are you", "what's your job", "about"],
+"cutestInput": ["who is the cutest", "who's the cutest"],
 "complimentInput": ["great job", "awesome job", "you're great", "you're amazing", "you're okay", "you're pretty good", "you're alright"],
+"deleteInput": ["thanks I hate it", "delete this", "cursed image alert"],
 "greetingInput": ["hi", "heya", "hello", "greetings", "salutations"],
 "statusInput": ["how are you", "how are things", "what's up", "what's going on", "how you doing", "what's doin"],
 "thanksInput": ["thanks", "thank you", "thank u", "thank"]

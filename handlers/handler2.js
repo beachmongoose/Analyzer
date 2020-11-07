@@ -7,17 +7,16 @@ const { botNotInPrefix, isInArray, getIDCount, randomItem } = require('./command
 const handler3 = require('./handler3')
 const userInputs = require('./commands/json/userInputs.json')
 const botAnswers = require('./commands/json/botAnswers.json')
-const { cursedImage } = require('./commands/cursedImageAlert');
 const { execute } = require('./commands/calculate')
 
 function askAnalyzer(message) {
     if (botNotInPrefix(message)) {
-        message.channel.send `Yeah?`
+        message.channel.send `PRESENT`
     }
     let idCount = getIDCount(message)
     const input = String(message.content.slice(idCount.length).toLowerCase())
     if (input === "") {
-        message.channel.send `Yeah?`
+        message.channel.send `PRESENT`
         return;
       }
     checkForPhrasesIn(input, message)
@@ -29,12 +28,6 @@ function checkForPhrasesIn(input, message) {
         execute(message, input)
         return;
     }
-
-    if (input === "cursed image alert") {
-        cursedImage(message)
-        return;
-    }
-
     checkMentions(input, message)
     return;
 }
@@ -50,7 +43,7 @@ async function checkMentions(input, message) {
 
     if (response.endsWith(" ")) {
         let name = await userNickname(message)
-        message.channel.send(response + `${name}`)
+        message.channel.send(response + `${name}.`)
         return;
     }
     message.channel.send(response)
@@ -77,6 +70,6 @@ function toHandlerThree(message) {
 
 function userNickname(message) {
     return new Promise(resolve => {
-        resolve(String(message.member.displayName))
+        resolve(String(message.member.displayName.toUpperCase()))
     })
 }
