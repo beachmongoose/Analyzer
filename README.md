@@ -18,13 +18,13 @@ Can be repurposed for use with any series or content creator.
 > Accessed by using a specified prefix (! by default)
 
 ```!all ```  
-Posts a list of all series contained in the bot's database.
+Posts a list of all series contained in the bot's database
 
 ```!calculate ARGUMENT```  
-Calculates the probability of a given argument (1-100%).
+Calculates the probability of a given argument (1-100%)
 
 ```!character-check is CHARACTER in SERIES```  
-Confirms whether or not a recycled Leiji character appears in a series.
+Confirms whether or not a recycled Leiji character appears in a series
 
 ```!characters in SERIES```  
 Provides list of characters that appear in specified series (limited to recurring characters)
@@ -42,16 +42,16 @@ Posts the help page with list of commands/uses
 Posts a Leijiverse meme
 
 ```!op SERIES```  
-Posts a YouTube link to the opening of the specified series.
+Posts a YouTube link to the opening of the specified series
 
 ## Responses
 > Accessed by mentioning the bot and including certain words/phrases.
 
 ```@Analyzer about```  
-Analyzer will tell you about himself.
+Analyzer will tell you about himself
 
 ```@Analyzer calculate```  
-Same as !calculate command.
+Same as !calculate command
 
 ```@Analyzer cursed image alert```  
 Posts a "delete this" image. (Can also be called by any messages containing "thanks I hate it" or "delete this")
