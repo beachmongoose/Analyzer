@@ -1,6 +1,13 @@
 {
     "aboutAnswer": ["I AM THE R-9 AUTONOMOUS TYPE SHIPBOURNE ANALYSIS UNIT, ALSO KNOWN AS AU09. I AM MOST OFTEN REFERRED TO AS ANALYZER. I AM A CREWMEMBER OF THE SPACE BATTLESHIP YAMATO. I WILL ANSWER QUESTIONS AS WELL AS PROVIDE INFORMATION AND DATA REGARDING SERIES BY LEIJI MATSUMOTO.\nUSE !HELP FOR A LIST OF COMMANDS."],
+    "cutestAnswer": ["It is an unrefuted scientific fact that the cutest character in Leiji canon is Mii-kun."],
     "complimentAnswer": ["THANK YOU, "],
+    "deleteAnswer": [
+        "https://imgur.com/O2HRxn5",
+        "https://imgur.com/0TnC9L9",
+        "https://imgur.com/k6nCj8w",
+        "https://imgur.com/lxpIvze"
+    ],
     "greetingAnswer": ["HELLO, "],
     "statusAnswer":
     ["I MUST CONFIRM THE DOCTOR HAS NOT DEPLETED OUR SAKE SUPPLY.",
