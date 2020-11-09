@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+const { randomItem } = require('./helpers/methods')
 const { characterFiles, characterNames } = require('./json/fileURLs.json')
 
 module.exports = {
@@ -8,19 +9,22 @@ module.exports = {
         let query = String(input[0]).toLowerCase()
         if (query === "list") {
             let characters = characterNames.join("\n")
-            message.channel.send('AVAILABLE RECORDS: ```' + characters.toUpperCase() + '```')
+            message.channel.send('AVAILABLE RECORDS: ```\n' + characters.toUpperCase() + '```')
         }
         for (entry in characterNames) {
             let name = String(characterNames[entry])
             if (name.includes(query)) {
-                let characterFile = characterFiles[name]
-                let number = characterFile.length;
-                let imageNumber = Math.floor (Math.random() * (number - 1 + 1)) + 1;
-                console.log("!file")
-                message.channel.send (characterFile[imageNumber])
+                let array = characterFiles[name]
+                respond(array, message)
                 return;
             }
         }
         return;
     }
+}
+
+async function respond(array, message) {
+    let response = await randomItem(array)
+    message.channel.send(response)
+    return;
 }
