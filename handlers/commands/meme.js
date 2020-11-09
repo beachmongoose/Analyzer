@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+const { randomItem } = require('./helpers/methods')
 const { memes } = require('./json/fileURLs.json')
 
 module.exports = {
@@ -6,9 +7,13 @@ module.exports = {
     description: "FORMAT AS: ```!meme```\n POSTS A LEIJIVERSE RELATED MEME.",
     execute(message, input) {
         console.log("!meme")
-        let number = memes.length
-        let imageNumber = Math.floor(Math.random() * (number -1 + 1)) + 1;
-        message.channel.send (memes[imageNumber])
+        respond(message)
         return;
     }
+}
+
+async function respond(message) {
+    let response = await randomItem(memes)
+    message.channel.send(response)
+    return;
 }
